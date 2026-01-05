@@ -94,17 +94,6 @@ export function BotEditor({ bot, onBack, onSave }: BotEditorProps) {
       <Card>
         <CardHeader>
           <CardTitle>Planos</CardTitle>
-          <div className="mt-2 p-3 bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 rounded-md">
-            <p className="text-sm text-amber-800 dark:text-amber-200 font-medium">
-              ⚠️ Atenção: Não remova o código abaixo de nenhum plano:
-            </p>
-            <code className="block mt-1 text-xs bg-amber-50 dark:bg-amber-950 p-2 rounded font-mono">
-              {'<pre>{{ $(\'HTTP RequestXX\').item.json.pix.payload }}</pre>'}
-            </code>
-            <p className="text-xs text-amber-700 dark:text-amber-300 mt-2">
-              Mantenha esse formato exato para não quebrar o funcionamento do bot.
-            </p>
-          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
