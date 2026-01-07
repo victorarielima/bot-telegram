@@ -1,5 +1,6 @@
 export interface BotConfig {
   id: number;
+  token: string;
   nomebot: string;
   pagamento_pendente: string;
   pagamento_vencido: string;

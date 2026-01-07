@@ -45,6 +45,23 @@ export function BotEditor({ bot, onBack, onSave }: BotEditorProps) {
 
       <Card>
         <CardHeader>
+          <CardTitle>Informações do Bot</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="token">Token</Label>
+            <Input
+              id="token"
+              value={config.token}
+              onChange={(e) => handleChange("token", e.target.value)}
+              placeholder="Token do bot"
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
           <CardTitle>Mensagens de Pagamento</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">

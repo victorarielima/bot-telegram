@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useBots } from "@/hooks/useBots";
 import { BotCard } from "@/components/BotCard";
 import { BotEditor } from "@/components/BotEditor";
@@ -8,6 +9,7 @@ import { Loader2, RefreshCw, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
+  const navigate = useNavigate();
   const { bots, loading, error, fetchBots, saveBot } = useBots();
   const [selectedBot, setSelectedBot] = useState<BotConfig | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -48,6 +50,9 @@ const Index = () => {
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold">Gerenciador de Bots</h1>
           <div className="flex gap-2">
+            <Button onClick={() => navigate("/subscriptions")} variant="secondary">
+              Assinaturas
+            </Button>
             <Button onClick={() => setShowAddForm(true)}>
               <Plus className="h-4 w-4 mr-2" />
               Adicionar Bot
