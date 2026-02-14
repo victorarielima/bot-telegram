@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSubscriptions } from "@/hooks/useSubscriptions";
 import { Subscription } from "@/types/subscription";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2, RefreshCw, X } from "lucide-react";
 
 const Subscriptions = () => {
+  const navigate = useNavigate();
   const { subscriptions, loading, error, fetchSubscriptions } = useSubscriptions();
   const [statusFilter, setStatusFilter] = useState<string>("");
   const [botFilter, setBotFilter] = useState<string>("");
@@ -54,23 +56,31 @@ const Subscriptions = () => {
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">Assinaturas</h1>
-          <Button
-            onClick={fetchSubscriptions}
-            disabled={loading}
-            variant="outline"
-          >
-            {loading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Carregando...
-              </>
-            ) : (
-              <>
-                <RefreshCw className="mr-2 h-4 w-4" />
-                Atualizar
-              </>
-            )}
-          </Button>
+          <div className="flex gap-2">
+            <Button onClick={() => navigate("/")} variant="secondary">
+              Bots
+            </Button>
+            <Button onClick={() => navigate("/analytics")} variant="secondary">
+              Analytics
+            </Button>
+            <Button
+              onClick={fetchSubscriptions}
+              disabled={loading}
+              variant="outline"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Carregando...
+                </>
+              ) : (
+                <>
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                  Atualizar
+                </>
+              )}
+            </Button>
+          </div>
         </div>
 
         {error && (

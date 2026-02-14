@@ -50,6 +50,9 @@ const Index = () => {
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold">Gerenciador de Bots</h1>
           <div className="flex gap-2">
+            <Button onClick={() => navigate("/analytics")} variant="secondary">
+              Analytics
+            </Button>
             <Button onClick={() => navigate("/subscriptions")} variant="secondary">
               Assinaturas
             </Button>
